@@ -1,0 +1,15 @@
+%{
+#include<stdio.h>
+%}
+%%
+bool|int|float|main|printf {printf("\n%s is a keyword",yytext);}
+[-,+]?[0-9]+ {printf("\n%s is a constant",yytext);}
+[!@#$%^&*()]+ {printf("\n%s is a special chars",yytext);}
+[a-zA-Z]+ {printf("\n%s is a identifiers",yytext);}
+%%
+int yywrap(){}
+int main()
+{
+printf("enter the input\n");
+yylex();
+}
